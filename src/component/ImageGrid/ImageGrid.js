@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import "./ImageGrid.css"
 import axios from "axios"
+import {connect} from "react-redux"
 
 const API_KEY = "AsDXl7IxZC2CDJxsOY2Mi8QNTCaEfaQs3Ut6082ATA0"
 class ImageGrid extends Component {
@@ -32,4 +33,9 @@ class ImageGrid extends Component {
     )
   }
 }
-export default ImageGrid
+const mapStateToProps = (state) => ({
+  images:state.images,
+    error:state.error,
+  loading:state.loading
+})
+export default connect(mapStateToProps,null)(ImageGrid)
